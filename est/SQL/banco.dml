@@ -1,0 +1,14 @@
+--Usuario
+INSERT INTO usuario (nomeUsuario,senhaUsuario) VALUES ('Kristyan', '100','true');
+
+--TEMA
+INSERT INTO TEMA (nomeTema,	descricaoTema) VALUES ('Conversão de Bases','Converter diferentes bases numéricas Binária/Octal/Decimal/Hexadecimal');
+
+--Questão
+INSERT INTO QUESTAO (comando,alt1,alt2,alt3,altC,explicacao,idTema) VALUES ('Converta 10, da base 10, para a base 2','10','11','15','1010','*explicacao*',1);
+
+--Prova
+INSERT INTO
+
+--Lista
+INSERT INTO Lista_Questao (listaQuestao)  
