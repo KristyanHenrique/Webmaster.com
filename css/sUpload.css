@@ -13,6 +13,7 @@
 		margin-top: 3%;
 		margin-left: 25%;
 		margin-right: 25%;
+		background-color: #90a4ae;
 	}
 	#button{
 		margin-left: 84%; 
@@ -24,4 +25,20 @@
 		text-align: center;
 		font-family: 'Just Another Hand';
 		font-size: 40px;
+	}
+	body {
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+		background-color: #B2C8CD;
+	}
+	main {
+		flex: 1 0 auto;
+	}
+	footer{
+		margin-top: 4%;
+	}
+
+	label{
+		color: black;
 	}

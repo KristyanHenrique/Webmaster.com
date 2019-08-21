@@ -10,40 +10,36 @@
       <!--Import materialize.css-->
       <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
       <!--Import CSSs da pagina-->
-      <link rel="stylesheet" type="text/css" href="../css/base.css">
       <link rel="stylesheet" type="text/css" href="../css/tabela.css">
       <link rel="stylesheet" type="text/css" href="../css/sDownload.css">
-      <link rel="stylesheet" type="text/css" href="../css/header.css">
     </head>
     <body id='body'>
-	    <div class="teal lighten-2 ">
 	    <?php
-			require_once ('../html/headerD.html');
-		?>
-		</div>
-    	<div >
-    		<div id='cabecalho'  class="card-panel teal lighten-2">
-    			Filmes
-    		</div>
-    		<div>
-    			<div id="tabela">
-    				<table id="table">
-        				<thead id="theader">
-          					<tr>
-				              <th>Nome</th>
-				              <th>Tamanho</th>
-				              <th id="dir">Download</th>
-				          </tr>
-				        </thead>
-                <?php
-                  require_once ('functions.php');
-                  leVideo();
-                ?>
-    			</div>
-    		</div>
-    	</div>
+			require_once ('../html/header.html');
+		  ?>
+    <main>
+        <div id='cabecalho'  class="card-panel blue-grey">
+            Filmes
+        </div>
+            <div>
+                <div id="tabela">
+                    <table id="table">
+                        <thead id="theader">
+                            <tr>
+                                <th>Nome</th>
+                                <th>Tamanho</th>
+                                <th id="dir">Download</th>
+                            </tr>
+                        </thead>
+                    <?php
+                        require_once ('functions.php');
+                        leVideo();
+                    ?>
+                </div>
+            </div>
+        </div>
+    </main>
       <!--JavaScript no final do corpo otimiza o carregamento da página-->
-
       <script type="text/javascript" src="js/materialize.min.js"></script>
     </body>
     <?php

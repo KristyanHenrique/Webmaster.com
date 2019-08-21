@@ -6,3 +6,15 @@
 		font-family: 'Just Another Hand';
 		font-size: 40px;
 	}
+	body {
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+		background-color: #B2C8CD;
+	}
+	main {
+		flex: 1 0 auto;
+	}
+	footer{
+		margin-top: 4%;
+	}

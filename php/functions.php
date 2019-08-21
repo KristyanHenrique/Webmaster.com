@@ -1,13 +1,10 @@
 <?php
 	/*
-		
-		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		!! Alterar Layout deste sistema !!
-		!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 		Lista os arquivos em forma de tabela da pasta "video" do servidor para um sistema de streaming
 		Kristyan
 		05/07/2019
+
+		Atualizado 21/08/2019
 	*/
 	function leVideo()
 	{
@@ -32,9 +29,7 @@
 					if ($arquivo != "." && $arquivo != '..') 
 					{
 						echo "<td>";
-							echo "<video width='320' height='240' controls>
-  									<source src='".$path.$arquivo."' type='video/mp4'>
-								  </video>";
+							echo "<form action='playerVideo.php' method='POST'><button type='submit' class='btn waves-effect waves-light blue-grey' value='".$path.$arquivo."' name='video' >Assistir</form>"	;
 						echo "</td>";
 					}
 				echo "</tr>";
@@ -44,60 +39,6 @@
 		echo "</table>";
 	}
 
-
-	/*
-		Gambiarra para verificar login
-
-		***************
-		* Fora de Uso *
-		***************
-
-		Kristyan
-		16/05/2019
-	*/
-	function verificaLogin()
-	{
-		session_start();
-		if((!isset ($_SESSION['login']) == true) and (!isset ($_SESSION['senha']) == true))
-		{
-			unset($_SESSION['login']);
-			unset($_SESSION['senha']);
-			header('location:../index.php');
-		}
-	}
-	
-	/*
-		Gambiarra para fazer login
-
-		***************
-		* Fora de Uso *
-		***************
-
-		Kristyan
-		16/05/2019
-	*/
-
-	function loginGambi()
-	{
-		$login = $_POST['nome'];		
-		$senha = $_POST['senha'];
-
-		if ($senha == '100') 
-		{
-			session_start();
-
-			$_SESSION['nome'] = $login;
-			$_SESSION['senha'] = $senha;
-		} 
-
-		else 
-		{
-			session_destroy();	
-			
-			unset ($_SESSION['nome']);
-			unset ($_SESSION['senha']);
-		}	
-	}
 
 	/*
 		Faz a criação (se necessário) de uma pasta (dentro da pasta upload no servidor) e salva o arquivo que foi recebido na mesma.  
@@ -159,14 +100,14 @@
 					if ($arquivo != "." && $arquivo != '..' ) 
 					{
 						echo "<td>";
-							echo "";
+						echo arredondarTam(filesize($path.$arquivo));
 						echo "</td>";
 					}
 					if ($arquivo != "." && $arquivo != '..') 
 					{
 						echo "<td>";
 						echo"<a href='".$path.$arquivo."' download='$arquivo'>
-								 <button class='waves-effect waves-light btn'>
+								 <button class=' blue-grey waves-effect waves-light btn'>
 									 <i class = 'material-icons right'>
 										 cloud_download
 									 </i>
@@ -180,5 +121,25 @@
 		}
 		$diretorio -> close();
 		echo "</table>";
+	}
+
+	/*
+	
+		Identifica o tamanho dos arquivos e adiciona o marcador de bits
+		Kristyan
+		18/08/2019
+
+	*/
+
+	function arredondarTam($taman){
+		$bytes = array(' B',' KB', ' MB', ' GB', ' TB');
+	    foreach ($bytes as $val) {
+	        if (1024 <= $taman) {
+	            $taman = $taman / 1024;
+	            continue;
+	        }
+	        break;
+	    }
+	    return round($taman, 0).$val;
 	}
 ?>

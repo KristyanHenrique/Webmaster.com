@@ -10,12 +10,12 @@
 </head>
 <body id="body">
 	<?php
-		require_once '../html/headerU.html';
+		require_once '../html/header.html';
 	?>
 	<div>
 		<div>
-	   		<div id='cabecalho' class="card-panel teal lighten-2">
-    			Sistema de Upload
+	   		<div id='cabecalho' class="card-panel blue-grey">
+    			Envie seus arquivos
     		</div>
 		</div>
 		<div class="row" >
@@ -30,13 +30,13 @@
 						<input name='arquivo' size='20' type='file'>
 					</div>
 					<div id="button">
-						<button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+						<button class="btn waves-effect waves-light blue-grey" type="submit" name="action">Enviar
     						<i class="material-icons right">send</i>
   						</button>
 					</div>
 					<?php
 						require_once 'functions.php';
-						if (isset($_POST['pasta'])) {
+						if (isset($_POST['pasta'])){
 							up(gerenciaPasta());
 						}
 					?>

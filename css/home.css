@@ -1,6 +1,12 @@
-	#row{
-		margin-left: 10%;
-		margin-right: 10%;
-		margin-bottom: 4.5%;
-		margin-top: 4.5%
+	body {
+		display: flex;
+		min-height: 100vh;
+		flex-direction: column;
+	}
+	main {
+		flex: 1 0 auto;
+		background-image: url("img/aa.png");
+	}
+	#github{
+		align-self: center;
 	}
