@@ -5,6 +5,7 @@
 		05/07/2019
 
 		Atualizado 21/08/2019
+		Kristyan
 	*/
 	function leVideo()
 	{
@@ -131,7 +132,8 @@
 
 	*/
 
-	function arredondarTam($taman){
+	function arredondarTam($taman)
+	{
 		$bytes = array(' B',' KB', ' MB', ' GB', ' TB');
 	    foreach ($bytes as $val) {
 	        if (1024 <= $taman) {
@@ -141,5 +143,55 @@
 	        break;
 	    }
 	    return round($taman, 0).$val;
+	}
+
+	/*
+	
+		Faz login no sistema com nome e senha 
+
+		**********************	
+		*Falta Banco de Dados*
+		**********************
+
+		Recupera a sessão da superglobal $_SESSION
+
+		Kristyan
+		16/03/2020
+
+	*/
+
+	function login($nome, $senha)
+	{	
+		$rs=conectaBanco($nome);
+
+		if (isset($rs)) {
+			if ($rs['nome']==$nome && $rs['senha']==$senha) {
+				session_start();
+				$_SESSION['nome']=$nome;
+				$_SESSION['senha']=$senha;	
+			}
+		}else{
+			echo "erro";
+		}
+
+		
+	}
+
+	function retLogin()
+	{
+		$nome=$_SESSION['nome'];
+		$senha=$_SESSION['senha'];
+
+		$sessao = array(1 => $nome, 2 => $senha);
+		return $sessao;
+	}
+
+	function conectaBanco($nome)
+	{
+		$con_string = "host=localhost port=5432 dbname=webmaster user=postgres password=power2486";
+		$bdcon = pg_connect($con_string);
+		$result=pg_query($bdcon, "SELECT * FROM usuario where nome = '".$nome."'");
+		$rs = pg_fetch_assoc($result);
+		return $rs;
 	}
 ?>

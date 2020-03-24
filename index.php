@@ -47,19 +47,6 @@
 				<div class="col s4 m3">
 					<div class="card blue-grey">
 						<div class="card-content white-text center">
-							<span class="card-title">WIP</span>
-							<hr class="blue-grey">
-							<br />
-							<p class="center">Work In Progress</p>
-						</div>
-						<div class="card-action">
-							<a href="php/sTeste.php">WIP</a>
-						</div>
-					</div>
-				</div>
-				<div class="col s4 m3">
-					<div class="card blue-grey">
-						<div class="card-content white-text center">
 							<span class="card-title">Vídeos</span>
 							<hr class="blue-grey">
 							<p class="center">Assista a vídeos pré-disponibilizados</p>
@@ -79,6 +66,19 @@
 						</div>
 						<div class="card-action">
 							<a href="php/sUpload.php">Upload</a>
+						</div>
+					</div>
+				</div>
+				<div class="col s4 m3">
+					<div class="card blue-grey">
+						<div class="card-content white-text center">
+							<span class="card-title">WIP</span>
+							<hr class="blue-grey">
+							<br />
+							<p class="center">Work In Progress</p>
+						</div>
+						<div class="card-action">
+							<a href="php/sTeste.php">WIP</a>
 						</div>
 					</div>
 				</div>
